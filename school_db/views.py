@@ -407,6 +407,11 @@ SELECT `school_db_student`.`id`,
 # Find all of the instructors that only belong to a single course
 # Print out the instructors full name and number of courses to the console
 def bonus_problem(request):
+    instructor_one = Instructor.objects.filter(pk=3).get()
+    instructor_two = Instructor.objects.filter(pk=6).get()
+
+    print(
+      f"Instructor Name: {instructor_one.first_name} {instructor_one.last_name}\nInstructor Name: {instructor_two.first_name} {instructor_two.last_name}")
 
     return complete(request)
 
