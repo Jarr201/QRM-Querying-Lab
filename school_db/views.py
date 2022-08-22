@@ -297,6 +297,11 @@ def problem_six(request):
 
     # Make sure to set this equal to the primary key of the row you just created!
     student_id = 11
+    Student.objects.filter(pk=11).update(gpa=4.4)
+    student = Student.objects.get(pk=11)
+
+    print(
+      f"Id: {student.id}\nFull Name: {student.first_name} {student.last_name}\nGPA: {student.gpa}")
 
     return complete(request)
 
@@ -344,6 +349,8 @@ def problem_seven(request):
 
     # Make sure to set this equal to the primary key of the row you just created!
     student_id = 11
+
+    Student.objects.filter(pk=student_id).delete()
 
     try:
         student = Student.objects.get(pk=student_id)
